@@ -73,6 +73,17 @@ public class CameraHelper {
 		}
 	}
 	
+	public static List<Size> getCameraSupportedPictureSizes(android.hardware.Camera camera) {
+		
+		if ((Build.VERSION.SDK_INT >= 5) && (camera != null)) {
+			if (camera.getParameters().getSupportedPictureSizes() != null) {
+				return camera.getParameters().getSupportedPictureSizes();
+			}
+		}
+
+		return null;
+	}
+	
 	public static int setCameraDisplayOrientation(int cameraId, android.hardware.Camera camera, int displayRotation) {
 		Camera.CameraInfo info = new Camera.CameraInfo();
 		Camera.getCameraInfo(cameraId, info);
