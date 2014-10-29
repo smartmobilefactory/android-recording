@@ -21,6 +21,7 @@ import java.io.IOException;
 import android.annotation.SuppressLint;
 import android.hardware.Camera;
 import android.hardware.Camera.Size;
+import android.media.CamcorderProfile;
 import android.media.MediaRecorder;
 import android.media.audiofx.NoiseSuppressor;
 import android.util.Log;
@@ -60,7 +61,6 @@ public class MediaRecorderManager {
 			recorder.setPreviewDisplay(v.getSurface());
 			recorder.setOrientationHint(cameraRotationDegree);
 			recorder.setAudioSource(MediaRecorder.AudioSource.MIC);
-
 			recorder.setVideoSource(MediaRecorder.VideoSource.CAMERA);
 			recorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
 			recorder.setVideoSize(sz.width, sz.height);
@@ -70,9 +70,11 @@ public class MediaRecorderManager {
 			recorder.prepare();
 			recorder.start();
 			isRecording = true;
-		} catch (IllegalStateException e) {
+		}
+		catch (IllegalStateException e) {
 			e.printStackTrace();
-		} catch (IOException e) {
+		}
+		catch (IOException e) {
 			e.printStackTrace();
 		}
 
