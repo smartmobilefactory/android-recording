@@ -57,20 +57,28 @@ public class CameraHelper {
 	
 	@SuppressLint("NewApi")
 	public static List<Size> getCameraSupportedVideoSizes(android.hardware.Camera camera) {
+		
 		List sizes;
+		
 		if ((Build.VERSION.SDK_INT >= 11) && (camera != null)) {
-			 if (camera.getParameters().getSupportedVideoSizes() != null) {
-			        sizes = camera.getParameters().getSupportedVideoSizes();
-			    } else {
-			        // Video sizes may be null, which indicates that all the supported 
-			        // preview sizes are supported for video recording.
-			        sizes = camera.getParameters().getSupportedPreviewSizes();
-			    }
+			if (camera.getParameters().getSupportedVideoSizes() != null) {
+				sizes = camera.getParameters().getSupportedVideoSizes();
+			}
+			else {
+				// Video sizes may be null, which indicates that all the supported 
+				// preview sizes are supported for video recording.
+				sizes = camera.getParameters().getSupportedPreviewSizes();
+			}
 			return sizes;
 		}
 		else {
 			return null;
 		}
+	}
+	
+	public static List<Size> getCameraSupportedPreviewSizes(android.hardware.Camera camera) {
+		List<Size> sizes = camera.getParameters().getSupportedPreviewSizes();
+		return sizes;
 	}
 	
 	public static List<Size> getCameraSupportedPictureSizes(android.hardware.Camera camera) {
