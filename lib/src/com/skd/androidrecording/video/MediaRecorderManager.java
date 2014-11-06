@@ -65,7 +65,6 @@ public class MediaRecorderManager {
 			recorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
 			recorder.setVideoSize(sz.width, sz.height);
 			recorder.setAudioEncoder(MediaRecorder.AudioEncoder.DEFAULT);
-			recorder.setVideoEncodingBitRate(500000);
 			recorder.setVideoEncoder(MediaRecorder.VideoEncoder.MPEG_4_SP);
 			recorder.setOutputFile(fileName);
 			recorder.prepare();
