@@ -19,11 +19,11 @@ Record audio: how to use
 1. Setup VisualizerView
 
     ```xml
-    <com.skd.com.skd.androidrecording.visualizer.VisualizerView
+    <com.skd.androidrecording.visualizer.VisualizerView
     	android:id="@+id/visualizerView"
     	android:layout_width="fill_parent"
     	android:layout_height="100dp" >
-    </com.skd.com.skd.androidrecording.visualizer.VisualizerView>
+    </com.skd.androidrecording.visualizer.VisualizerView>
     ```
     
     ```java
@@ -103,7 +103,7 @@ Record video: how to use
 1. Setup custom SurfaceView (AdaptiveSurfaceView)
 
     ```xml
-    <com.skd.com.skd.androidrecording.video.AdaptiveSurfaceView
+    <com.skd.androidrecording.video.AdaptiveSurfaceView
     	android:id="@+id/videoView"
     	android:layout_width="wrap_content"
     	android:layout_height="wrap_content" />
