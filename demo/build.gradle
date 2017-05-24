@@ -1,0 +1,58 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.3"
+
+    signingConfigs {
+        debug {
+            storeFile file("debug.keystore")
+        }
+    }
+
+    defaultConfig {
+        minSdkVersion 15
+        targetSdkVersion 18
+        applicationId "com.skd.androidrecordingtest"
+        versionCode 1
+        versionName "1.0.0"
+    }
+
+    buildTypes {
+
+        debug {
+            signingConfig android.signingConfigs.debug
+            applicationIdSuffix '.debug'
+            minifyEnabled false
+        }
+
+        alpha {
+            initWith(buildTypes.debug)
+            applicationIdSuffix '.alpha'
+        }
+
+        beta {
+            initWith(buildTypes.debug)
+            applicationIdSuffix '.beta'
+        }
+
+        release {
+            minifyEnabled false
+            shrinkResources false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+}
+
+dependencies {
+    compile project(':lib')
+
+    def android_support_version = "25.3.1"
+    compile "com.android.support:support-v4:${android_support_version}"
+    compile "com.android.support:support-annotations:${android_support_version}"
+    compile "com.android.support:appcompat-v7:${android_support_version}"
+}
